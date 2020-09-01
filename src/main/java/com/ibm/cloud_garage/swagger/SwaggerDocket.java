@@ -24,12 +24,22 @@ public class SwaggerDocket {
         super();
     }
 
-    @Bean
+    //@Bean
+    //public Docket api() {
+    //    return new Docket(DocumentationType.SWAGGER_2)
+    //            .select()
+    //            .apis(buildApiRequestHandler())
+    //            .paths(PathSelectors.any())
+    //            .build()
+    //            .apiInfo(buildApiInfo());
+    //}
+
+        @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(buildApiRequestHandler())
-                .paths(PathSelectors.any())
+                .paths(PathSelectors.regex(".*stock-item.*"))
                 .build()
                 .apiInfo(buildApiInfo());
     }
